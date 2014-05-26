@@ -1,4 +1,118 @@
-AMAK
+"AMAK
 ====
 
 Υπολογίζει τα KL, KG1, KG2, KG, T, UL, F(MQN)
+PROSOXI! sto git DEN emfanizontai ta tokens ( opos to prosimo - ) , pou iparxun omos sto kanoniko  arxeio
+"
+
+()
+Prgm
+
+" ==============
+  ==== AMAK ====
+  = KAZAS 2014 =
+  ==============
+"
+setMode("Angle","DEGREE")
+setMode("Display Digits","FLOAT")
+setMode("Exact/Approx","APPROXIMATE")
+ClrIO
+Disp "","      ==============","      ==== AMAK ====","      == GK  2014 =="
+Pause "      =============="
+Lbl start:
+ClrIO
+Input "E=",e
+Input "I=",i
+Input "A=",a
+Input "L=",l
+Input "a= (moires)",aa
+[[e*a/l,0,0,­e*a/l,0,0][0,12*e*i/l^3,­6*e*i/l^2,0,­12*e*i/l^3,­6*e*i/l^2][0,­6*e*i/l^2,4*e*i/l,0,6*e*i/l^2,2*e*i/l][­e*a/l,0,0,e*a/l,0,0][0,­12*e*i/l^3,6*e*i/l^2,0,12*e*i/l^3,6*e*i/l^2][0,­6*e*i/l^2,2*e*i/l,0,6*e*i/l^2,4*e*i/l]]kl
+ClrIO
+Disp "EA/L=",e*a/l
+Disp "12EI/L^3=",12*e*i/l^3
+Disp "6EI/L^2="
+Pause 6*e*i/l^2
+ClrIO
+Disp "4EI/L=",4*e*i/l
+Disp "2EI/L="
+Pause 2*e*i/l
+ClrIO
+If aa=0 Then 
+Pause "KL=KG="
+ClrIO
+Pause kl
+Else
+Pause "KL="
+ClrIO
+Pause kl
+ClrIO
+sin(aa)s
+cos(aa)c
+
+e*i*[[12/l^3*s^2,­12/l^3*c*s,6/l^2*s,­12/l^3*s^2,12/l^3*c*s,6/l^2*s][­12/l^3*c*s,12/l^3*c^2,­6/l^2*c,12/l^3*c*s,­12/l^3*c^2,­6/l^2*c][6/l^2*s,­6/l^2*c,4/l,­6/l^2*s,­6/l^2*c,2/l][­12/l^3*s^2,12/l^3*c*s,­6/l^2*s,12/l^3*s^2,­12/l^3*c*s,­6/l^2*s][12/l^3*c*s,­12/l^3*c^2,6/l^2*c,­12/l^3*c*s,12/l^3*c^2,6/l^2*c][6/l^2*s,­6/l^2*c,2/l,­6/l^2*s,6/l^2*c,4/l]]k1g
+ClrIO
+Pause "K1G="
+ClrIO
+Pause k1g
+
+
+e*a/l*[[c^2,c*s,0,­c^2,­c*s,0][c*s,s^2,0,c*s,­s^2,0][0,0,0,0,0,0][­c^2,­c*s,0,c^2,c*s,0][­c*s,­s^2,0,c*s,s^2,0][0,0,0,0,0,0]]k2g
+ClrIO
+Pause "K2G="
+ClrIO
+Pause k2g
+
+ClrIO
+Pause "KG=K1G+K2G="
+k1g+k2gkg
+cls
+Pause kg
+EndIf
+Lbl epst:
+ClrIO
+Disp "epomeno stoixeio;"
+Input "nai=1 NQM=2 exodos=3",est
+If est=1 Then 
+Goto start
+ElseIf est=3 Then 
+end
+Else
+ClrIO
+Disp "dwse UG (m)"
+Input "u1;",u1g
+Input "v1;",v1g
+Input "f1;",f1g
+Input "u2;",u2g
+Input "v2;",v2g
+Input "f2;",f2g
+ClrIO
+[[cos(aa),sin(aa),0,0,0,0][­sin(aa),cos(aa),0,0,0,0][0,0,1,0,0,0][0,0,0,cos(aa),sin(aa),0][0,0,0,­sin(aa),cos(aa),0][0,0,0,0,0,1]]t
+Pause "T="
+ClrIO
+Pause t
+ClrIO
+[[u1g][v1g][f1g][u2g][v2g][f2g]]ugl
+t*uglul
+ClrIO
+Pause "UL=T*UG="
+ClrIO
+Pause ul
+ClrIO
+Disp "dwse arxikes fortiseis SL"
+Input "N1;",na1
+Input "Q1;",qa1
+Input "M1;",ma1
+Input "N2;",na2
+Input "Q2;",qa2
+Input "M2;",ma2
+[[na1][qa1][ma1][na2][qa2][ma2]]arx
+kl*ulultkl
+arx+ultkltel
+ClrIO
+Pause "FL=SL+KL*UL="
+ClrIO
+Pause tel
+ClrIO
+Disp "Press F5 to exit"
+EndIf
+EndPrgm
